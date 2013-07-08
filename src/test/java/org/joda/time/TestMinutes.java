@@ -15,11 +15,6 @@
  */
 package org.joda.time;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
@@ -191,23 +186,23 @@ public class TestMinutes extends TestCase {
         assertEquals("PT-20M", test.toString());
     }
 
-    //-----------------------------------------------------------------------
-    public void testSerialization() throws Exception {
-        Minutes test = Minutes.THREE;
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(test);
-        byte[] bytes = baos.toByteArray();
-        oos.close();
-        
-        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        Minutes result = (Minutes) ois.readObject();
-        ois.close();
-        
-        assertSame(test, result);
-    }
+//    //-----------------------------------------------------------------------
+//    public void testSerialization() throws Exception {
+//        Minutes test = Minutes.THREE;
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ObjectOutputStream oos = new ObjectOutputStream(baos);
+//        oos.writeObject(test);
+//        byte[] bytes = baos.toByteArray();
+//        oos.close();
+//
+//        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+//        ObjectInputStream ois = new ObjectInputStream(bais);
+//        Minutes result = (Minutes) ois.readObject();
+//        ois.close();
+//
+//        assertSame(test, result);
+//    }
 
     //-----------------------------------------------------------------------
     public void testToStandardWeeks() {

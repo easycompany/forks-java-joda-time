@@ -15,9 +15,7 @@
  */
 package org.joda.time.field;
 
-import java.io.Serializable;
 import java.util.Locale;
-
 import org.joda.time.Chronology;
 import org.joda.time.DateTimeField;
 import org.joda.time.DateTimeFieldType;
@@ -43,7 +41,7 @@ import org.joda.time.ReadablePartial;
  * @author Mike Schrag
  * @since 1.0
  */
-public abstract class AbstractReadableInstantFieldProperty implements Serializable {
+public abstract class AbstractReadableInstantFieldProperty/* implements Serializable*/ {
 
     /** Serialization version. */
     private static final long serialVersionUID = 1971226328211649661L;

@@ -15,8 +15,6 @@
  */
 package org.joda.time.base;
 
-import java.io.Serializable;
-
 import org.joda.time.Chronology;
 import org.joda.time.DateTimeUtils;
 import org.joda.time.DateTimeZone;
@@ -42,7 +40,7 @@ import org.joda.time.convert.InstantConverter;
  */
 public abstract class BaseDateTime
         extends AbstractDateTime
-        implements ReadableDateTime, Serializable {
+        implements ReadableDateTime/*, Serializable*/ {
 
     /** Serialization lock */
     private static final long serialVersionUID = -6728882245981L;

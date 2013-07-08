@@ -15,8 +15,6 @@
  */
 package org.joda.time;
 
-import java.io.Serializable;
-
 import org.joda.convert.FromString;
 import org.joda.time.base.BaseDuration;
 import org.joda.time.field.FieldUtils;
@@ -37,7 +35,7 @@ import org.joda.time.field.FieldUtils;
  */
 public final class Duration
         extends BaseDuration
-        implements ReadableDuration, Serializable {
+        implements ReadableDuration/*, Serializable*/ {
 
     /** Constant representing zero millisecond duration */
     public static final Duration ZERO = new Duration(0L);

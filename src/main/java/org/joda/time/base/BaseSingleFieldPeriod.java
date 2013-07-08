@@ -15,8 +15,6 @@
  */
 package org.joda.time.base;
 
-import java.io.Serializable;
-
 import org.joda.time.Chronology;
 import org.joda.time.DateTimeUtils;
 import org.joda.time.DurationField;
@@ -44,7 +42,7 @@ import org.joda.time.field.FieldUtils;
  * @since 1.4
  */
 public abstract class BaseSingleFieldPeriod
-        implements ReadablePeriod, Comparable<BaseSingleFieldPeriod>, Serializable {
+        implements ReadablePeriod, Comparable<BaseSingleFieldPeriod>/*, Serializable*/ {
 
     /** Serialization version. */
     private static final long serialVersionUID = 9386874258972L;

@@ -15,14 +15,8 @@
  */
 package org.joda.time.field;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import org.joda.time.DurationField;
 import org.joda.time.DurationFieldType;
 import org.joda.time.chrono.ISOChronology;
@@ -195,22 +189,22 @@ public class TestMillisDurationField extends TestCase {
         } catch (NullPointerException ex) {}
     }
 
-    //-----------------------------------------------------------------------
-    public void testSerialization() throws Exception {
-        DurationField test = MillisDurationField.INSTANCE;
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(test);
-        byte[] bytes = baos.toByteArray();
-        oos.close();
-        
-        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        DurationField result = (DurationField) ois.readObject();
-        ois.close();
-        
-        assertSame(test, result);
-    }
+//    //-----------------------------------------------------------------------
+//    public void testSerialization() throws Exception {
+//        DurationField test = MillisDurationField.INSTANCE;
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ObjectOutputStream oos = new ObjectOutputStream(baos);
+//        oos.writeObject(test);
+//        byte[] bytes = baos.toByteArray();
+//        oos.close();
+//
+//        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+//        ObjectInputStream ois = new ObjectInputStream(bais);
+//        DurationField result = (DurationField) ois.readObject();
+//        ois.close();
+//
+//        assertSame(test, result);
+//    }
 
 }

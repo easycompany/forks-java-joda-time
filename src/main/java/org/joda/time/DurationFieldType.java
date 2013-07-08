@@ -36,7 +36,7 @@ import java.io.Serializable;
  * @author Brian S O'Neill
  * @since 1.0
  */
-public abstract class DurationFieldType implements Serializable {
+public abstract class DurationFieldType /*implements Serializable */{
 
     /** Serialization version */
     private static final long serialVersionUID = 8765135187319L;

@@ -15,11 +15,6 @@
  */
 package org.joda.time;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.ObjectStreamException;
-import java.io.Serializable;
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
@@ -27,12 +22,10 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
-
 import org.joda.convert.FromString;
 import org.joda.convert.ToString;
 import org.joda.time.chrono.BaseChronology;
 import org.joda.time.field.FieldUtils;
-import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.DateTimeFormatterBuilder;
 import org.joda.time.format.FormatUtils;
@@ -86,7 +79,7 @@ import org.joda.time.tz.ZoneInfoProvider;
  * @author Stephen Colebourne
  * @since 1.0
  */
-public abstract class DateTimeZone implements Serializable {
+public abstract class DateTimeZone /*implements Serializable */{
     
     /** Serialization version. */
     private static final long serialVersionUID = 5546345482340108586L;
@@ -1256,20 +1249,20 @@ public abstract class DateTimeZone implements Serializable {
         return getID();
     }
 
-    /**
-     * By default, when DateTimeZones are serialized, only a "stub" object
-     * referring to the id is written out. When the stub is read in, it
-     * replaces itself with a DateTimeZone object.
-     * @return a stub object to go in the stream
-     */
-    protected Object writeReplace() throws ObjectStreamException {
-        return new Stub(iID);
-    }
+//    /**
+//     * By default, when DateTimeZones are serialized, only a "stub" object
+//     * referring to the id is written out. When the stub is read in, it
+//     * replaces itself with a DateTimeZone object.
+//     * @return a stub object to go in the stream
+//     */
+//    protected Object writeReplace() throws ObjectStreamException {
+//        return new Stub(iID);
+//    }
 
     /**
      * Used to serialize DateTimeZones by id.
      */
-    private static final class Stub implements Serializable {
+    private static final class Stub /*implements Serializable */{
         /** Serialization lock. */
         private static final long serialVersionUID = -6471952376487863581L;
         /** The ID of the zone. */
@@ -1283,17 +1276,17 @@ public abstract class DateTimeZone implements Serializable {
             iID = id;
         }
 
-        private void writeObject(ObjectOutputStream out) throws IOException {
-            out.writeUTF(iID);
-        }
+//        private void writeObject(ObjectOutputStream out) throws IOException {
+//            out.writeUTF(iID);
+//        }
+//
+//        private void readObject(ObjectInputStream in) throws IOException {
+//            iID = in.readUTF();
+//        }
 
-        private void readObject(ObjectInputStream in) throws IOException {
-            iID = in.readUTF();
-        }
-
-        private Object readResolve() throws ObjectStreamException {
-            return forID(iID);
-        }
+//        private Object readResolve() throws ObjectStreamException {
+//            return forID(iID);
+//        }
     }
 
 }

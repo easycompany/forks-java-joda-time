@@ -15,9 +15,6 @@
  */
 package org.joda.time;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
@@ -26,7 +23,6 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 import java.util.TimeZone;
-
 import org.joda.convert.FromString;
 import org.joda.convert.ToString;
 import org.joda.time.base.BaseLocal;
@@ -81,7 +77,7 @@ import org.joda.time.format.ISODateTimeFormat;
  */
 public final class LocalDate
         extends BaseLocal
-        implements ReadablePartial, Serializable {
+        implements ReadablePartial/*, Serializable*/ {
 
     /** Serialization lock */
     private static final long serialVersionUID = -8775358157899L;
@@ -1892,22 +1888,22 @@ public final class LocalDate
             iField = field;
         }
         
-        /**
-         * Writes the property in a safe serialization format.
-         */
-        private void writeObject(ObjectOutputStream oos) throws IOException {
-            oos.writeObject(iInstant);
-            oos.writeObject(iField.getType());
-        }
-
-        /**
-         * Reads the property from a safe serialization format.
-         */
-        private void readObject(ObjectInputStream oos) throws IOException, ClassNotFoundException {
-            iInstant = (LocalDate) oos.readObject();
-            DateTimeFieldType type = (DateTimeFieldType) oos.readObject();
-            iField = type.getField(iInstant.getChronology());
-        }
+//        /**
+//         * Writes the property in a safe serialization format.
+//         */
+//        private void writeObject(ObjectOutputStream oos) throws IOException {
+//            oos.writeObject(iInstant);
+//            oos.writeObject(iField.getType());
+//        }
+//
+//        /**
+//         * Reads the property from a safe serialization format.
+//         */
+//        private void readObject(ObjectInputStream oos) throws IOException, ClassNotFoundException {
+//            iInstant = (LocalDate) oos.readObject();
+//            DateTimeFieldType type = (DateTimeFieldType) oos.readObject();
+//            iField = type.getField(iInstant.getChronology());
+//        }
 
         //-----------------------------------------------------------------------
         /**

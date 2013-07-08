@@ -15,9 +15,7 @@
  */
 package org.joda.time;
 
-import java.io.Serializable;
 import java.util.Comparator;
-
 import org.joda.time.convert.ConverterManager;
 import org.joda.time.convert.InstantConverter;
 
@@ -45,7 +43,7 @@ import org.joda.time.convert.InstantConverter;
  * @author Brian S O'Neill
  * @since 1.0
  */
-public class DateTimeComparator implements Comparator<Object>, Serializable {
+public class DateTimeComparator implements Comparator<Object>/*, Serializable */{
 
     /** Serialization lock */
     private static final long serialVersionUID = -6097339773320178364L;

@@ -15,16 +15,9 @@
  */
 package org.joda.time;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.Arrays;
 import java.util.Locale;
-
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import org.joda.time.chrono.BuddhistChronology;
 import org.joda.time.chrono.CopticChronology;
 import org.joda.time.chrono.GregorianChronology;
@@ -755,26 +748,26 @@ public class TestLocalTime_Basics extends TestCase {
         } catch (IllegalArgumentException ex) {}
     }
 
-    //-----------------------------------------------------------------------
-    public void testSerialization() throws Exception {
-        LocalTime test = new LocalTime(10, 20, 30, 40, COPTIC_PARIS);
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(test);
-        byte[] bytes = baos.toByteArray();
-        oos.close();
-        
-        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        LocalTime result = (LocalTime) ois.readObject();
-        ois.close();
-        
-        assertEquals(test, result);
-        assertTrue(Arrays.equals(test.getValues(), result.getValues()));
-        assertTrue(Arrays.equals(test.getFields(), result.getFields()));
-        assertEquals(test.getChronology(), result.getChronology());
-    }
+//    //-----------------------------------------------------------------------
+//    public void testSerialization() throws Exception {
+//        LocalTime test = new LocalTime(10, 20, 30, 40, COPTIC_PARIS);
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ObjectOutputStream oos = new ObjectOutputStream(baos);
+//        oos.writeObject(test);
+//        byte[] bytes = baos.toByteArray();
+//        oos.close();
+//
+//        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+//        ObjectInputStream ois = new ObjectInputStream(bais);
+//        LocalTime result = (LocalTime) ois.readObject();
+//        ois.close();
+//
+//        assertEquals(test, result);
+//        assertTrue(Arrays.equals(test.getValues(), result.getValues()));
+//        assertTrue(Arrays.equals(test.getFields(), result.getFields()));
+//        assertEquals(test.getChronology(), result.getChronology());
+//    }
 
     //-----------------------------------------------------------------------
     public void testToString() {

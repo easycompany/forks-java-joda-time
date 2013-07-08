@@ -15,21 +15,14 @@
  */
 package org.joda.time;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
 import java.util.TimeZone;
-
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import org.joda.time.chrono.BuddhistChronology;
 import org.joda.time.chrono.CopticChronology;
 import org.joda.time.chrono.GJChronology;
@@ -935,27 +928,27 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(test, test.property(DateTimeFieldType.minuteOfDay()).getLocalDateTime());
     }
 
-    //-----------------------------------------------------------------------
-    public void testSerialization() throws Exception {
-        LocalDateTime test = new LocalDateTime(1972, 6, 9, 10, 20, 30, 40, COPTIC_PARIS);
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(test);
-        byte[] bytes = baos.toByteArray();
-        oos.close();
-        
-        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        LocalDateTime result = (LocalDateTime) ois.readObject();
-        ois.close();
-        
-        assertEquals(test, result);
-        assertTrue(Arrays.equals(test.getValues(), result.getValues()));
-        assertTrue(Arrays.equals(test.getFields(), result.getFields()));
-        assertEquals(test.getChronology(), result.getChronology());
-        assertTrue(result.isSupported(DateTimeFieldType.dayOfMonth()));  // check deserialization
-    }
+//    //-----------------------------------------------------------------------
+//    public void testSerialization() throws Exception {
+//        LocalDateTime test = new LocalDateTime(1972, 6, 9, 10, 20, 30, 40, COPTIC_PARIS);
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ObjectOutputStream oos = new ObjectOutputStream(baos);
+//        oos.writeObject(test);
+//        byte[] bytes = baos.toByteArray();
+//        oos.close();
+//
+//        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+//        ObjectInputStream ois = new ObjectInputStream(bais);
+//        LocalDateTime result = (LocalDateTime) ois.readObject();
+//        ois.close();
+//
+//        assertEquals(test, result);
+//        assertTrue(Arrays.equals(test.getValues(), result.getValues()));
+//        assertTrue(Arrays.equals(test.getFields(), result.getFields()));
+//        assertEquals(test.getChronology(), result.getChronology());
+//        assertTrue(result.isSupported(DateTimeFieldType.dayOfMonth()));  // check deserialization
+//    }
 
     //-----------------------------------------------------------------------
     public void testToString() {

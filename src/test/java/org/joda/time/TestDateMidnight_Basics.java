@@ -15,19 +15,13 @@
  */
 package org.joda.time;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
-
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import org.joda.time.base.AbstractInstant;
 import org.joda.time.chrono.BuddhistChronology;
 import org.joda.time.chrono.CopticChronology;
@@ -414,23 +408,23 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(false, new DateMidnight(2004, 6, 9).isAfter(new DateTime(2004, 6, 9, 0, 0, 0, 1)));
     }
     
-    //-----------------------------------------------------------------------
-    public void testSerialization() throws Exception {
-        DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(test);
-        byte[] bytes = baos.toByteArray();
-        oos.close();
-        
-        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        DateMidnight result = (DateMidnight) ois.readObject();
-        ois.close();
-        
-        assertEquals(test, result);
-    }
+//    //-----------------------------------------------------------------------
+//    public void testSerialization() throws Exception {
+//        DateMidnight test = new DateMidnight(TEST_TIME_NOW_UTC);
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ObjectOutputStream oos = new ObjectOutputStream(baos);
+//        oos.writeObject(test);
+//        byte[] bytes = baos.toByteArray();
+//        oos.close();
+//
+//        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+//        ObjectInputStream ois = new ObjectInputStream(bais);
+//        DateMidnight result = (DateMidnight) ois.readObject();
+//        ois.close();
+//
+//        assertEquals(test, result);
+//    }
 
     //-----------------------------------------------------------------------
     public void testToString() {

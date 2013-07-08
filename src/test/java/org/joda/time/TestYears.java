@@ -15,11 +15,6 @@
  */
 package org.joda.time;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
@@ -173,23 +168,23 @@ public class TestYears extends TestCase {
         assertEquals("P-20Y", test.toString());
     }
 
-    //-----------------------------------------------------------------------
-    public void testSerialization() throws Exception {
-        Years test = Years.THREE;
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(test);
-        byte[] bytes = baos.toByteArray();
-        oos.close();
-        
-        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        Years result = (Years) ois.readObject();
-        ois.close();
-        
-        assertSame(test, result);
-    }
+//    //-----------------------------------------------------------------------
+//    public void testSerialization() throws Exception {
+//        Years test = Years.THREE;
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ObjectOutputStream oos = new ObjectOutputStream(baos);
+//        oos.writeObject(test);
+//        byte[] bytes = baos.toByteArray();
+//        oos.close();
+//
+//        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+//        ObjectInputStream ois = new ObjectInputStream(bais);
+//        Years result = (Years) ois.readObject();
+//        ois.close();
+//
+//        assertSame(test, result);
+//    }
 
     //-----------------------------------------------------------------------
     public void testPlus_int() {

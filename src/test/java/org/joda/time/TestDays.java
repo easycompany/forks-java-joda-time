@@ -15,11 +15,6 @@
  */
 package org.joda.time;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
@@ -199,23 +194,23 @@ public class TestDays extends TestCase {
         assertEquals("P-20D", test.toString());
     }
 
-    //-----------------------------------------------------------------------
-    public void testSerialization() throws Exception {
-        Days test = Days.SEVEN;
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(test);
-        byte[] bytes = baos.toByteArray();
-        oos.close();
-        
-        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        Days result = (Days) ois.readObject();
-        ois.close();
-        
-        assertSame(test, result);
-    }
+//    //-----------------------------------------------------------------------
+//    public void testSerialization() throws Exception {
+//        Days test = Days.SEVEN;
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ObjectOutputStream oos = new ObjectOutputStream(baos);
+//        oos.writeObject(test);
+//        byte[] bytes = baos.toByteArray();
+//        oos.close();
+//
+//        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+//        ObjectInputStream ois = new ObjectInputStream(bais);
+//        Days result = (Days) ois.readObject();
+//        ois.close();
+//
+//        assertSame(test, result);
+//    }
 
     //-----------------------------------------------------------------------
     public void testToStandardWeeks() {

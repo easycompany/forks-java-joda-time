@@ -56,7 +56,7 @@ import org.joda.time.format.PeriodFormatter;
  */
 public final class Period
         extends BasePeriod
-        implements ReadablePeriod, Serializable {
+        implements ReadablePeriod/*, Serializable*/ {
 
     /**
      * A period of zero length and standard period type.

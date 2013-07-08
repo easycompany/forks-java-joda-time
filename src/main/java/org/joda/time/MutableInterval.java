@@ -51,7 +51,7 @@ import org.joda.time.format.ISOPeriodFormat;
  */
 public class MutableInterval
         extends BaseInterval
-        implements ReadWritableInterval, Cloneable, Serializable {
+        implements ReadWritableInterval, Cloneable/*, Serializable*/ {
 
     /** Serialization version */
     private static final long serialVersionUID = -5982824024992428470L;

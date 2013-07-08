@@ -33,7 +33,7 @@ import org.joda.time.ReadablePartial;
  * @since 1.0
  * @see DecoratedDateTimeField
  */
-public class DelegatedDateTimeField extends DateTimeField implements Serializable {
+public class DelegatedDateTimeField extends DateTimeField /*implements Serializable */{
 
     /** Serialization version */
     private static final long serialVersionUID = -4730164440214502503L;

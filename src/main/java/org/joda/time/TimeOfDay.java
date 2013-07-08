@@ -65,7 +65,7 @@ import org.joda.time.format.ISODateTimeFormat;
 @Deprecated
 public final class TimeOfDay
         extends BasePartial
-        implements ReadablePartial, Serializable {
+        implements ReadablePartial/*, Serializable*/ {
     // NOTE: No toDateTime(YearMonthDay) as semantics are confusing when
     // different chronologies
 
@@ -1015,7 +1015,7 @@ public final class TimeOfDay
      * @deprecated Use LocalTime which has a much better internal implementation
      */
     @Deprecated
-    public static class Property extends AbstractPartialFieldProperty implements Serializable {
+    public static class Property extends AbstractPartialFieldProperty /*implements Serializable */{
 
         /** Serialization version */
         private static final long serialVersionUID = 5598459141741063833L;

@@ -15,12 +15,7 @@
  */
 package org.joda.time;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.Locale;
-
 import org.joda.convert.FromString;
 import org.joda.time.base.BaseDateTime;
 import org.joda.time.chrono.ISOChronology;
@@ -72,7 +67,7 @@ import org.joda.time.format.ISODateTimeFormat;
  */
 public final class DateTime
         extends BaseDateTime
-        implements ReadableDateTime, Serializable {
+        implements ReadableDateTime/*, Serializable*/ {
 
     /** Serialization lock */
     private static final long serialVersionUID = -5171125899451703815L;
@@ -2047,22 +2042,22 @@ public final class DateTime
             iField = field;
         }
         
-        /**
-         * Writes the property in a safe serialization format.
-         */
-        private void writeObject(ObjectOutputStream oos) throws IOException {
-            oos.writeObject(iInstant);
-            oos.writeObject(iField.getType());
-        }
-
-        /**
-         * Reads the property from a safe serialization format.
-         */
-        private void readObject(ObjectInputStream oos) throws IOException, ClassNotFoundException {
-            iInstant = (DateTime) oos.readObject();
-            DateTimeFieldType type = (DateTimeFieldType) oos.readObject();
-            iField = type.getField(iInstant.getChronology());
-        }
+//        /**
+//         * Writes the property in a safe serialization format.
+//         */
+//        private void writeObject(ObjectOutputStream oos) throws IOException {
+//            oos.writeObject(iInstant);
+//            oos.writeObject(iField.getType());
+//        }
+//
+//        /**
+//         * Reads the property from a safe serialization format.
+//         */
+//        private void readObject(ObjectInputStream oos) throws IOException, ClassNotFoundException {
+//            iInstant = (DateTime) oos.readObject();
+//            DateTimeFieldType type = (DateTimeFieldType) oos.readObject();
+//            iField = type.getField(iInstant.getChronology());
+//        }
 
         //-----------------------------------------------------------------------
         /**

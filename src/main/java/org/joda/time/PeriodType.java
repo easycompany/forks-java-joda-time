@@ -48,7 +48,7 @@ import org.joda.time.field.FieldUtils;
  * @author Stephen Colebourne
  * @since 1.0
  */
-public class PeriodType implements Serializable {
+public class PeriodType /*implements Serializable */{
     /** Serialization version */
     private static final long serialVersionUID = 2274324892792009998L;
 

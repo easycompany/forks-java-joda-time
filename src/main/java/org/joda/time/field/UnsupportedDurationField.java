@@ -29,7 +29,7 @@ import org.joda.time.DurationFieldType;
  * @author Brian S O'Neill
  * @since 1.0
  */
-public final class UnsupportedDurationField extends DurationField implements Serializable {
+public final class UnsupportedDurationField extends DurationField /*implements Serializable */{
 
     /** Serialization lock. */
     private static final long serialVersionUID = -6390301302770925357L;

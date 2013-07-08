@@ -15,8 +15,6 @@
  */
 package org.joda.time.chrono;
 
-import java.io.Serializable;
-
 import org.joda.time.Chronology;
 import org.joda.time.DateTimeField;
 import org.joda.time.DateTimeFieldType;
@@ -42,7 +40,7 @@ import org.joda.time.field.UnsupportedDurationField;
  */
 public abstract class BaseChronology
         extends Chronology
-        implements Serializable {
+        /*implements Serializable */{
 
     /** Serialization version. */
     private static final long serialVersionUID = -7310865996721419676L;

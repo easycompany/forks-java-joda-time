@@ -55,7 +55,7 @@ import org.joda.time.format.PeriodFormatter;
  */
 public class MutablePeriod
         extends BasePeriod
-        implements ReadWritablePeriod, Cloneable, Serializable {
+        implements ReadWritablePeriod, Cloneable/*, Serializable*/ {
 
     /** Serialization version */
     private static final long serialVersionUID = 3436451121567212165L;

@@ -480,7 +480,7 @@ public final class IslamicChronology extends BasicChronology {
      *
      * @since 1.2
      */
-    public static class LeapYearPatternType implements Serializable {
+    public static class LeapYearPatternType /*implements Serializable */{
         /** Serialization lock */
         private static final long serialVersionUID = 26581275372698L;
 //        /** Leap year raw data encoded into bits. */

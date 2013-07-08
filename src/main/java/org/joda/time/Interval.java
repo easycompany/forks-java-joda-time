@@ -49,7 +49,7 @@ import org.joda.time.format.ISOPeriodFormat;
  */
 public final class Interval
         extends BaseInterval
-        implements ReadableInterval, Serializable {
+        implements ReadableInterval/*, Serializable*/ {
 
     /** Serialization version */
     private static final long serialVersionUID = 4922451897541386752L;

@@ -15,9 +15,6 @@
  */
 package org.joda.time.chrono;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-
 import org.joda.time.Chronology;
 import org.joda.time.DateTimeField;
 import org.joda.time.DateTimeZone;
@@ -385,10 +382,10 @@ public abstract class AssembledChronology extends BaseChronology {
         iBaseFlags = flags;
     }
 
-    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
-        in.defaultReadObject();
-        setFields();
-    }
+//    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+//        in.defaultReadObject();
+//        setFields();
+//    }
 
     /**
      * A container of fields used for assembling a chronology.

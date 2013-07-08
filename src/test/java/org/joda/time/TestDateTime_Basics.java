@@ -15,19 +15,13 @@
  */
 package org.joda.time;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
-
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import org.joda.time.base.AbstractInstant;
 import org.joda.time.chrono.BaseChronology;
 import org.joda.time.chrono.BuddhistChronology;
@@ -479,23 +473,23 @@ public class TestDateTime_Basics extends TestCase {
         assertEquals(false, new DateTime(TEST_TIME_NOW - 1).isAfter(null));
     }
     
-    //-----------------------------------------------------------------------
-    public void testSerialization() throws Exception {
-        DateTime test = new DateTime(TEST_TIME_NOW);
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(test);
-        byte[] bytes = baos.toByteArray();
-        oos.close();
-        
-        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        DateTime result = (DateTime) ois.readObject();
-        ois.close();
-        
-        assertEquals(test, result);
-    }
+//    //-----------------------------------------------------------------------
+//    public void testSerialization() throws Exception {
+//        DateTime test = new DateTime(TEST_TIME_NOW);
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ObjectOutputStream oos = new ObjectOutputStream(baos);
+//        oos.writeObject(test);
+//        byte[] bytes = baos.toByteArray();
+//        oos.close();
+//
+//        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+//        ObjectInputStream ois = new ObjectInputStream(bais);
+//        DateTime result = (DateTime) ois.readObject();
+//        ois.close();
+//
+//        assertEquals(test, result);
+//    }
 
     //-----------------------------------------------------------------------
     public void testToString() {

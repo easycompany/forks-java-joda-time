@@ -15,18 +15,12 @@
  */
 package org.joda.time;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.lang.reflect.Modifier;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import org.joda.time.base.AbstractInstant;
 import org.joda.time.chrono.GregorianChronology;
 import org.joda.time.chrono.ISOChronology;
@@ -360,23 +354,23 @@ public class TestInstant_Basics extends TestCase {
         assertEquals(false, new Instant(TEST_TIME_NOW - 1).isAfter(null));
     }
     
-    //-----------------------------------------------------------------------
-    public void testSerialization() throws Exception {
-        Instant test = new Instant(TEST_TIME_NOW);
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(test);
-        byte[] bytes = baos.toByteArray();
-        oos.close();
-        
-        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        Instant result = (Instant) ois.readObject();
-        ois.close();
-        
-        assertEquals(test, result);
-    }
+//    //-----------------------------------------------------------------------
+//    public void testSerialization() throws Exception {
+//        Instant test = new Instant(TEST_TIME_NOW);
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ObjectOutputStream oos = new ObjectOutputStream(baos);
+//        oos.writeObject(test);
+//        byte[] bytes = baos.toByteArray();
+//        oos.close();
+//
+//        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+//        ObjectInputStream ois = new ObjectInputStream(bais);
+//        Instant result = (Instant) ois.readObject();
+//        ois.close();
+//
+//        assertEquals(test, result);
+//    }
 
     //-----------------------------------------------------------------------
     public void testToString() {

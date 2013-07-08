@@ -64,7 +64,7 @@ import org.joda.time.format.ISODateTimeFormat;
 @Deprecated
 public final class YearMonthDay
         extends BasePartial
-        implements ReadablePartial, Serializable {
+        implements ReadablePartial/*, Serializable*/ {
 
     /** Serialization version */
     private static final long serialVersionUID = 797544782896179L;
@@ -930,7 +930,7 @@ public final class YearMonthDay
      * @deprecated Use LocalDate which has a much better internal implementation
      */
     @Deprecated
-    public static class Property extends AbstractPartialFieldProperty implements Serializable {
+    public static class Property extends AbstractPartialFieldProperty /*implements Serializable */{
 
         /** Serialization version */
         private static final long serialVersionUID = 5727734012190224363L;

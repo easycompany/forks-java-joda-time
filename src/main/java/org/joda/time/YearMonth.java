@@ -67,7 +67,7 @@ import org.joda.time.format.ISODateTimeFormat;
  */
 public final class YearMonth
         extends BasePartial
-        implements ReadablePartial, Serializable {
+        implements ReadablePartial/*, Serializable*/ {
 
     /** Serialization version */
     private static final long serialVersionUID = 797544782896179L;
@@ -833,7 +833,7 @@ public final class YearMonth
      * @author Stephen Colebourne
      * @since 2.0
      */
-    public static class Property extends AbstractPartialFieldProperty implements Serializable {
+    public static class Property extends AbstractPartialFieldProperty /*implements Serializable */{
 
         /** Serialization version */
         private static final long serialVersionUID = 5727734012190224363L;

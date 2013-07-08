@@ -15,9 +15,7 @@
  */
 package org.joda.time.base;
 
-import java.io.Serializable;
 import java.util.Locale;
-
 import org.joda.time.Chronology;
 import org.joda.time.DateTimeField;
 import org.joda.time.DateTimeUtils;
@@ -42,7 +40,7 @@ import org.joda.time.format.DateTimeFormatter;
  */
 public abstract class BasePartial
         extends AbstractPartial
-        implements ReadablePartial, Serializable {
+        implements ReadablePartial/*, Serializable*/ {
 
     /** Serialization version */
     private static final long serialVersionUID = 2353678632973660L;

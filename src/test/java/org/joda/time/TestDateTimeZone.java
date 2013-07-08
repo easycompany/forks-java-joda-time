@@ -15,12 +15,8 @@
  */
 package org.joda.time;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.PrintStream;
-import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.security.AllPermission;
 import java.security.CodeSource;
@@ -36,10 +32,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
-
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import org.joda.time.tz.DefaultNameProvider;
 import org.joda.time.tz.NameProvider;
 import org.joda.time.tz.Provider;
@@ -962,41 +956,41 @@ public class TestDateTimeZone extends TestCase {
         assertEquals("UTC", DateTimeZone.UTC.toString());
     }
 
-    //-----------------------------------------------------------------------
-    public void testSerialization1() throws Exception {
-        DateTimeZone zone = DateTimeZone.forID("Europe/Paris");
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(zone);
-        byte[] bytes = baos.toByteArray();
-        oos.close();
-        
-        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        DateTimeZone result = (DateTimeZone) ois.readObject();
-        ois.close();
-        
-        assertSame(zone, result);
-    }
-
-    //-----------------------------------------------------------------------
-    public void testSerialization2() throws Exception {
-        DateTimeZone zone = DateTimeZone.forID("+01:00");
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(zone);
-        byte[] bytes = baos.toByteArray();
-        oos.close();
-        
-        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        DateTimeZone result = (DateTimeZone) ois.readObject();
-        ois.close();
-        
-        assertSame(zone, result);
-    }
+//    //-----------------------------------------------------------------------
+//    public void testSerialization1() throws Exception {
+//        DateTimeZone zone = DateTimeZone.forID("Europe/Paris");
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ObjectOutputStream oos = new ObjectOutputStream(baos);
+//        oos.writeObject(zone);
+//        byte[] bytes = baos.toByteArray();
+//        oos.close();
+//
+//        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+//        ObjectInputStream ois = new ObjectInputStream(bais);
+//        DateTimeZone result = (DateTimeZone) ois.readObject();
+//        ois.close();
+//
+//        assertSame(zone, result);
+//    }
+//
+//    //-----------------------------------------------------------------------
+//    public void testSerialization2() throws Exception {
+//        DateTimeZone zone = DateTimeZone.forID("+01:00");
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ObjectOutputStream oos = new ObjectOutputStream(baos);
+//        oos.writeObject(zone);
+//        byte[] bytes = baos.toByteArray();
+//        oos.close();
+//
+//        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+//        ObjectInputStream ois = new ObjectInputStream(bais);
+//        DateTimeZone result = (DateTimeZone) ois.readObject();
+//        ois.close();
+//
+//        assertSame(zone, result);
+//    }
 
     public void testCommentParse() throws Exception {
         // A bug in ZoneInfoCompiler's handling of comments broke Europe/Athens

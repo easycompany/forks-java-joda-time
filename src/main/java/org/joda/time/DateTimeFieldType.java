@@ -15,8 +15,6 @@
  */
 package org.joda.time;
 
-import java.io.Serializable;
-
 /**
  * Identifies a field, such as year or minuteOfHour, in a chronology-neutral way.
  * <p>
@@ -38,7 +36,7 @@ import java.io.Serializable;
  * @author Brian S O'Neill
  * @since 1.0
  */
-public abstract class DateTimeFieldType implements Serializable {
+public abstract class DateTimeFieldType/* implements Serializable*/ {
 
     /** Serialization version */
     private static final long serialVersionUID = -42615285973990L;

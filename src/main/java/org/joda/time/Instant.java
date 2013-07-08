@@ -54,7 +54,7 @@ import org.joda.time.format.ISODateTimeFormat;
  */
 public final class Instant
         extends AbstractInstant
-        implements ReadableInstant, Serializable {
+        implements ReadableInstant/*, Serializable*/ {
 
     /** Serialization lock */
     private static final long serialVersionUID = 3299096530934209741L;

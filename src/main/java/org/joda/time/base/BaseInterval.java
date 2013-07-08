@@ -15,8 +15,6 @@
  */
 package org.joda.time.base;
 
-import java.io.Serializable;
-
 import org.joda.time.Chronology;
 import org.joda.time.DateTimeUtils;
 import org.joda.time.MutableInterval;
@@ -47,7 +45,7 @@ import org.joda.time.field.FieldUtils;
  */
 public abstract class BaseInterval
         extends AbstractInterval
-        implements ReadableInterval, Serializable {
+        implements ReadableInterval/*, Serializable*/ {
 
     /** Serialization version */
     private static final long serialVersionUID = 576586928732749278L;

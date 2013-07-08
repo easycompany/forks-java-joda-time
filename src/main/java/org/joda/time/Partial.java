@@ -67,7 +67,7 @@ import org.joda.time.format.ISODateTimeFormat;
  */
 public final class Partial
         extends AbstractPartial
-        implements ReadablePartial, Serializable {
+        implements ReadablePartial/*, Serializable*/ {
 
     /** Serialization version */
     private static final long serialVersionUID = 12324121189002L;
@@ -812,7 +812,7 @@ public final class Partial
      * @author Stephen Colebourne
      * @since 1.1
      */
-    public static class Property extends AbstractPartialFieldProperty implements Serializable {
+    public static class Property extends AbstractPartialFieldProperty /*implements Serializable */{
 
         /** Serialization version */
         private static final long serialVersionUID = 53278362873888L;

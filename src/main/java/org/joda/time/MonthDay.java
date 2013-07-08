@@ -70,7 +70,7 @@ import org.joda.time.format.ISODateTimeFormat;
  */
 public final class MonthDay
         extends BasePartial
-        implements ReadablePartial, Serializable {
+        implements ReadablePartial/*, Serializable*/ {
 
     /** Serialization version */
     private static final long serialVersionUID = 2954560699050434609L;
@@ -819,7 +819,7 @@ public final class MonthDay
      * @author Chris Pheby
      * @since 2.0
      */
-    public static class Property extends AbstractPartialFieldProperty implements Serializable {
+    public static class Property extends AbstractPartialFieldProperty /*implements Serializable */{
 
         /** Serialization version */
         private static final long serialVersionUID = 5727734012190224363L;

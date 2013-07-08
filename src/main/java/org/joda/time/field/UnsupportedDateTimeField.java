@@ -31,7 +31,7 @@ import org.joda.time.ReadablePartial;
  * @author Brian S O'Neill
  * @since 1.0
  */
-public final class UnsupportedDateTimeField extends DateTimeField implements Serializable {
+public final class UnsupportedDateTimeField extends DateTimeField /*implements Serializable */{
 
     /** Serialilzation version */
     private static final long serialVersionUID = -1934618396111902255L;

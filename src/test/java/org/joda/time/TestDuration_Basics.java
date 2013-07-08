@@ -15,16 +15,10 @@
  */
 package org.joda.time;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.Locale;
 import java.util.TimeZone;
-
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import org.joda.time.base.AbstractDuration;
 import org.joda.time.base.BaseDuration;
 import org.joda.time.chrono.ISOChronology;
@@ -230,23 +224,23 @@ public class TestDuration_Basics extends TestCase {
         assertEquals(false, new Duration(0L).isLongerThan(null));
     }
     
-    //-----------------------------------------------------------------------
-    public void testSerialization() throws Exception {
-        Duration test = new Duration(123L);
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(test);
-        byte[] bytes = baos.toByteArray();
-        oos.close();
-        
-        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-        ObjectInputStream ois = new ObjectInputStream(bais);
-        Duration result = (Duration) ois.readObject();
-        ois.close();
-        
-        assertEquals(test, result);
-    }
+//    //-----------------------------------------------------------------------
+//    public void testSerialization() throws Exception {
+//        Duration test = new Duration(123L);
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ObjectOutputStream oos = new ObjectOutputStream(baos);
+//        oos.writeObject(test);
+//        byte[] bytes = baos.toByteArray();
+//        oos.close();
+//
+//        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+//        ObjectInputStream ois = new ObjectInputStream(bais);
+//        Duration result = (Duration) ois.readObject();
+//        ois.close();
+//
+//        assertEquals(test, result);
+//    }
 
     //-----------------------------------------------------------------------
     public void testGetStandardSeconds() {
