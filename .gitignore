@@ -1,9 +1,77 @@
-bin/
-build/
-lib/
+# Operating system files
+*~
+*.DS_Store
+[Tt]humbs.db
+*.swp
+*.out
+
+#Maven
 target/
 *.log
-src/tz-data/
-*TempTest*
-/test-output/
-/.settings/
+
+# Netbeans IDE
+/build/
+nbbuild/
+dist/
+nbdist/
+nbproject/build-impl.xml
+nbproject/genfiles.properties
+nbproject/private/
+
+
+# Eclipse IDE
+.metadata/
+
+.settings/
+
+.classpath
+
+.project
+
+Servers/*
+
+# Xcode IDE
+*~.nib
+/build/
+*.pbxuser
+*.mode1
+*.mode2v3
+*.mode1v3
+*.perspective
+*.perspectivev3
+*.xcworkspace
+*.xcworkspacedata
+xcuserdata
+
+
+# Visual Studio IDE
+[Oo]bj
+[Bb]in
+*.user
+*.suo
+*.[Cc]ache
+*.bak
+*.ncb
+*.log
+_ReSharper.*
+*.resharper
+Ankh.NoLoad
+
+
+# IntelliJ IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
+
+
+# Java
+*.class
+
+
+# Python
+*.pyc
+
+
+s101plugin.state
