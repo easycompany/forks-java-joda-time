@@ -15,34 +15,15 @@
  */
 package org.joda.time.tz;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.StringTokenizer;
-import java.util.TreeMap;
-import java.util.Map.Entry;
-
-import org.joda.time.Chronology;
-import org.joda.time.DateTime;
-import org.joda.time.DateTimeField;
-import org.joda.time.DateTimeZone;
-import org.joda.time.LocalDate;
-import org.joda.time.MutableDateTime;
+import org.joda.time.*;
 import org.joda.time.chrono.ISOChronology;
 import org.joda.time.chrono.LenientChronology;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
+
+import java.io.*;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * Compiles Olson ZoneInfo database files into binary files for each time zone
@@ -78,64 +59,64 @@ public class ZoneInfoCompiler {
     public static boolean verbose() {
         return cVerbose.get();
     }
-
-    //-----------------------------------------------------------------------
-    /**
-     * Launches the ZoneInfoCompiler tool.
-     *
-     * <pre>
-     * Usage: java org.joda.time.tz.ZoneInfoCompiler &lt;options&gt; &lt;source files&gt;
-     * where possible options include:
-     *   -src &lt;directory&gt;    Specify where to read source files
-     *   -dst &lt;directory&gt;    Specify where to write generated files
-     *   -verbose            Output verbosely (default false)
-     * </pre>
-     */
-    public static void main(String[] args) throws Exception {
-        if (args.length == 0) {
-            printUsage();
-            return;
-        }
-
-        File inputDir = null;
-        File outputDir = null;
-        boolean verbose = false;
-
-        int i;
-        for (i=0; i<args.length; i++) {
-            try {
-                if ("-src".equals(args[i])) {
-                    inputDir = new File(args[++i]);
-                } else if ("-dst".equals(args[i])) {
-                    outputDir = new File(args[++i]);
-                } else if ("-verbose".equals(args[i])) {
-                    verbose = true;
-                } else if ("-?".equals(args[i])) {
-                    printUsage();
-                    return;
-                } else {
-                    break;
-                }
-            } catch (IndexOutOfBoundsException e) {
-                printUsage();
-                return;
-            }
-        }
-
-        if (i >= args.length) {
-            printUsage();
-            return;
-        }
-
-        File[] sources = new File[args.length - i];
-        for (int j=0; i<args.length; i++,j++) {
-            sources[j] = inputDir == null ? new File(args[i]) : new File(inputDir, args[i]);
-        }
-
-        cVerbose.set(verbose);
-        ZoneInfoCompiler zic = new ZoneInfoCompiler();
-        zic.compile(outputDir, sources);
-    }
+//
+//    //-----------------------------------------------------------------------
+//    /**
+//     * Launches the ZoneInfoCompiler tool.
+//     *
+//     * <pre>
+//     * Usage: java org.joda.time.tz.ZoneInfoCompiler &lt;options&gt; &lt;source files&gt;
+//     * where possible options include:
+//     *   -src &lt;directory&gt;    Specify where to read source files
+//     *   -dst &lt;directory&gt;    Specify where to write generated files
+//     *   -verbose            Output verbosely (default false)
+//     * </pre>
+//     */
+//    public static void main(String[] args) throws Exception {
+//        if (args.length == 0) {
+//            printUsage();
+//            return;
+//        }
+//
+//        File inputDir = null;
+//        File outputDir = null;
+//        boolean verbose = false;
+//
+//        int i;
+//        for (i=0; i<args.length; i++) {
+//            try {
+//                if ("-src".equals(args[i])) {
+//                    inputDir = new File(args[++i]);
+//                } else if ("-dst".equals(args[i])) {
+//                    outputDir = new File(args[++i]);
+//                } else if ("-verbose".equals(args[i])) {
+//                    verbose = true;
+//                } else if ("-?".equals(args[i])) {
+//                    printUsage();
+//                    return;
+//                } else {
+//                    break;
+//                }
+//            } catch (IndexOutOfBoundsException e) {
+//                printUsage();
+//                return;
+//            }
+//        }
+//
+//        if (i >= args.length) {
+//            printUsage();
+//            return;
+//        }
+//
+//        File[] sources = new File[args.length - i];
+//        for (int j=0; i<args.length; i++,j++) {
+//            sources[j] = inputDir == null ? new File(args[i]) : new File(inputDir, args[i]);
+//        }
+//
+//        cVerbose.set(verbose);
+//        ZoneInfoCompiler zic = new ZoneInfoCompiler();
+//        zic.compile(outputDir, sources);
+//    }
 
     private static void printUsage() {
         System.out.println("Usage: java org.joda.time.tz.ZoneInfoCompiler <options> <source files>");
